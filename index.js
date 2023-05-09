@@ -15,7 +15,7 @@ const ctx = canvas.getContext("2d");
 const promise = navigator.mediaDevices.getUserMedia(medias);
 const textArea = document.getElementById("textArea");
 
-let pilot_flag = 0;
+let detect_flag = 0;
 
 // import LSD from './lsd/lsd';
 
@@ -77,7 +77,10 @@ function successCallback(stream) {
 
       // videoMatNow = cv.matFromImageData(ctx.getImageData(0, 0, canvas.width, canvas.height));
       videoMat1 = cv.matFromImageData(ctx.getImageData(0, 0, canvas.width, canvas.height));
-      if(read_flag<0){
+      if(detect_flag<90){
+        ; // do nothing
+      }
+      else if(read_flag<0){
         ; // 何もしない
       }
       else if(read_flag<1){
@@ -149,6 +152,8 @@ function successCallback(stream) {
  
         read_flag = 0;
       }
+
+      detect_flag ++;
 
       let delay = 1000 / FPS - (Date.now() - begin);
       if(delay<0){
