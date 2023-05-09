@@ -24,7 +24,7 @@ promise.then(successCallback)
 
 function successCallback(stream) {
   video.srcObject = stream;
-  const FPS = 10;
+  const FPS = 5;
 
   // const width = canvas.width*1.5;
   // const height = canvas.height*4;
