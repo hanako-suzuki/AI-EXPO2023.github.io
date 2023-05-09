@@ -131,7 +131,7 @@ function successCallback(stream) {
             //   outMat.ucharPtr(row,col)[2] = sum[2];
             // }
 
-            if(145<sum[0] & sum[0]<185 & sum[1]<120 & 80<sum[2] & sum[2]<120){ // iPhone application
+            if(125<sum[0] & sum[0]<165 & sum[1]<90 & 60<sum[2] & sum[2]<120){ // iPhone application
               outMat.ucharPtr(row,col)[0] = sum[0];
               outMat.ucharPtr(row,col)[1] = sum[1];
               outMat.ucharPtr(row,col)[2] = sum[2];
@@ -220,7 +220,7 @@ function houghDetection(tMat, height, width, MatImage1){
     let mid_x = parseInt((fuse_lines[max_id][0].x+fuse_lines[max_id][1].x)/2);
     let mid_y = fuse_lines[max_id][0].y;
     let tmp_length = max_length/4;
-    let diff_length = parseInt(tmp_length/2);
+    let diff_length = parseInt(tmp_length/2)-10;
     let l_sum = [0,0,0];
     let r_sum = [0,0,0];
     let l_max = 0;
@@ -274,7 +274,7 @@ function CountPixels(tMat, height, width, MatImage){
   // set variables
   let imgMat = MatImage.clone();
   let outMat = tMat.clone();
-  let num = width*0.1;
+  let num = width*0.5;
   let cnt = 0;
   let start_x = width;
   let end_x = 0;
@@ -422,11 +422,11 @@ function CountPixels(tMat, height, width, MatImage){
     console.log('count');
     console.log('left color:', l_sum, ' right color:', r_sum);
     console.log('left color:', tmp_color[l_idx], ' right color:', tmp_color[r_idx]);
-    Jump(l_idx, r_idx);
     // cv.line(imgMat, new cv.Point(mid_x-diff_length-2, mid_y), new cv.Point(mid_x-diff_length+2, mid_y), new cv.Scalar(255,0,0), thickness=3);
     // cv.line(imgMat, new cv.Point(mid_x+diff_length-2, mid_y), new cv.Point(mid_x+diff_length+2, mid_y), new cv.Scalar(255,0,0), thickness=3);
     // cv.line(imgMat, new cv.Point(lines[max_id][0].x, mid_y), new cv.Point(lines[max_id][1].x, mid_y), new cv.Scalar(255,0,0), thickness=3);
     // textArea.innerHTML = ' count:' + String(tmp_color[l_idx]) + ', ' + String(tmp_color[r_idx]);
+    Jump(l_idx, r_idx);
   }
 
   cv.imshow("canvas", imgMat);
