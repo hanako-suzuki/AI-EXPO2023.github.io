@@ -30,7 +30,7 @@ const medias = {
   
   function successCallback(stream) {
     video.srcObject = stream;
-    const FPS = 30;
+    const FPS = 10;
   
     // const width = canvas.width*1.5;
     // const height = canvas.height*4;
@@ -84,7 +84,7 @@ const medias = {
         // videoMatNow = cv.matFromImageData(ctx.getImageData(0, 0, canvas.width, canvas.height));
         videoMat1 = cv.matFromImageData(ctx.getImageData(0, 0, canvas.width, canvas.height));
         
-        if(detect_flag<90 || read_flag<0){
+        if(detect_flag<10 || read_flag<0){
           ; // 何もしない
         }
         else if(read_flag<1){
@@ -126,23 +126,23 @@ const medias = {
               //   outMat.ucharPtr(row,col)[1] = sum[1];
               //   outMat.ucharPtr(row,col)[2] = sum[2];
               // }
-              // if(115<sum[0] & sum[0]<155 & sum[1]<90 & 80<sum[2] & sum[2]<140){ // display
-              //   outMat.ucharPtr(row,col)[0] = sum[0];
-              //   outMat.ucharPtr(row,col)[1] = sum[1];
-              //   outMat.ucharPtr(row,col)[2] = sum[2];
-              //   // console.log("x:", col, " y:", row, " sum:", sum);
-              // }
+              if(115<sum[0] & sum[0]<155 & sum[1]<90 & 80<sum[2] & sum[2]<140){ // display
+                outMat.ucharPtr(row,col)[0] = sum[0];
+                outMat.ucharPtr(row,col)[1] = sum[1];
+                outMat.ucharPtr(row,col)[2] = sum[2];
+                // console.log("x:", col, " y:", row, " sum:", sum);
+              }
               // if(140<sum[0] & sum[0]<220 & sum[1]<120 & 80<sum[2] & sum[2]<160){ // iPhone application
               //   outMat.ucharPtr(row,col)[0] = sum[0];
               //   outMat.ucharPtr(row,col)[1] = sum[1];
               //   outMat.ucharPtr(row,col)[2] = sum[2];
               // }
   
-              if(125<sum[0] & sum[0]<165 & sum[1]<90 & 60<sum[2] & sum[2]<120){ // iPhone application
-                outMat.ucharPtr(row,col)[0] = sum[0];
-                outMat.ucharPtr(row,col)[1] = sum[1];
-                outMat.ucharPtr(row,col)[2] = sum[2];
-              }
+            //   if(125<sum[0] & sum[0]<165 & sum[1]<90 & 60<sum[2] & sum[2]<120){ // iPhone application
+            //     outMat.ucharPtr(row,col)[0] = sum[0];
+            //     outMat.ucharPtr(row,col)[1] = sum[1];
+            //     outMat.ucharPtr(row,col)[2] = sum[2];
+            //   }
             }
           }
   
@@ -268,10 +268,10 @@ const medias = {
       console.log('hough detection');
       console.log('left color:', l_sum, ' right color:', r_sum);
       console.log('left color:', tmp_color[l_idx], ' right color:', tmp_color[r_idx]);
-      cv.line(imgMat, fuse_lines[max_id][0], fuse_lines[max_id][1], new cv.Scalar(255,0,0), thickness=3);
-      cv.line(imgMat, new cv.Point(mid_x-diff_length-2, mid_y), new cv.Point(mid_x-diff_length+2, mid_y), new cv.Scalar(255,0,0), thickness=3);
-      cv.line(imgMat, new cv.Point(mid_x+diff_length-2, mid_y), new cv.Point(mid_x+diff_length+2, mid_y), new cv.Scalar(255,0,0), thickness=3);
-      textArea.innerHTML = 'hough:' + String(tmp_color[l_idx]) + ', ' + String( tmp_color[r_idx]);
+    //   cv.line(imgMat, fuse_lines[max_id][0], fuse_lines[max_id][1], new cv.Scalar(255,0,0), thickness=3);
+    //   cv.line(imgMat, new cv.Point(mid_x-diff_length-2, mid_y), new cv.Point(mid_x-diff_length+2, mid_y), new cv.Scalar(255,0,0), thickness=3);
+    //   cv.line(imgMat, new cv.Point(mid_x+diff_length-2, mid_y), new cv.Point(mid_x+diff_length+2, mid_y), new cv.Scalar(255,0,0), thickness=3);
+    //   textArea.innerHTML = 'hough:' + String(tmp_color[l_idx]) + ', ' + String( tmp_color[r_idx]);
     }
   
     // cv.imshow("canvas", imgMat);
@@ -283,13 +283,14 @@ const medias = {
     // set variables
     let imgMat = MatImage.clone();
     let outMat = tMat.clone();
-    let num = width*0.5;
+    let num = width*0.1;
     let cnt = 0;
     let start_x = width;
     let end_x = 0;
     let lines = []; // [startPoint, endPoint]
     let delta = 5;
     let w_list;
+    let length_threshold = width*0.5;
   
     for(let row=10; row<height-10; row++){
       // reset variables
@@ -354,7 +355,7 @@ const medias = {
         }
       }
     }
-    if(max_id != -1){ // if line is detected
+    if(max_id != -1 & max_length>length_threshold){ // if line is detected
   
       // calculate y
       let cand_y = [];
