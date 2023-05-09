@@ -6,12 +6,12 @@ const medias = {
       }
     }
   };
-  navigator.mediaDevices.getUserMedia({
-    audio: false,
-    video: {
-        deviceId: cameraDeviceIds[0],
-    },
-  })
+//   navigator.mediaDevices.getUserMedia({
+//     audio: false,
+//     video: {
+//         deviceId: cameraDeviceIds[0],
+//     },
+//   })
   const video = document.getElementById("video");
   video.autoplay = true;
   video.muted = true;
