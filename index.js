@@ -425,7 +425,7 @@ function CountPixels(tMat, height, width, MatImage){
     // cv.line(imgMat, new cv.Point(mid_x-diff_length-2, mid_y), new cv.Point(mid_x-diff_length+2, mid_y), new cv.Scalar(255,0,0), thickness=3);
     // cv.line(imgMat, new cv.Point(mid_x+diff_length-2, mid_y), new cv.Point(mid_x+diff_length+2, mid_y), new cv.Scalar(255,0,0), thickness=3);
     // cv.line(imgMat, new cv.Point(lines[max_id][0].x, mid_y), new cv.Point(lines[max_id][1].x, mid_y), new cv.Scalar(255,0,0), thickness=3);
-    // textArea.innerHTML = ' count:' + String(tmp_color[l_idx]) + ', ' + String(tmp_color[r_idx]);
+    textArea.innerHTML = ' count:' + String(tmp_color[l_idx]) + ', ' + String(tmp_color[r_idx]);
     Jump(l_idx, r_idx);
   }
 
