@@ -382,7 +382,33 @@ const medias = {
         // merge_sort(cand_y);
         // console.log('after :', cand_y);
         console.log('cand_y :', cand_y);
-        mid_y = lines[cand_y[parseInt(cand_y.length/2)][0]][0].y;
+
+        /* test */
+        let ok_num = [];
+        let ok_max = 0;
+        let ok_id = 0;
+        for(let i=0; i<cand_y.length; i++){
+            let ok_cnt = 0;
+            for(let j=0; j<5; j++){
+                data_l = MatImage.ucharPtr(lines[cand_y[i][0]][0].y, lines[cand_y[i][0]][0].x+j);
+                data_r = MatImage.ucharPtr(lines[cand_y[i][0]][0].y, lines[cand_y[i][0]][0].x-j);
+                if((data_l[0]>150 & data_l[1]<100 & data_l[2]<100) || (data_l[0]<100 & data_l[1]<100 & data_l[2]>150)){
+                    // red or blue
+                    ok_cnt++;
+                }
+                if((data_r[0]>150 & data_r[1]<100 & data_r[2]<100) || (data_r[0]<100 & data_r[1]<100 & data_r[2]>150)){
+                    // red or blue
+                    ok_cnt++;
+                }
+            } 
+            ok_num.push(ok_cnt);
+            if(ok_cnt>ok_max){
+                ok_max = ok_cnt;
+                ok_id = i;
+            }
+        }
+
+        mid_y = lines[cand_y[ok_id][0]][0].y;
       }else{
         mid_y = lines[max_id][0].y;
       }
