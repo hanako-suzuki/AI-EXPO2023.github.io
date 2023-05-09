@@ -500,63 +500,63 @@ const medias = {
     if(l_color==0 & r_color==0){ //      RR LED1-1
         // to katsurai Lab.
         if(window.confirm('webページに飛びますか？')){
-          window.open('https://mm.doshisha.ac.jp/', '_blank', 'noreferrer');
+          window.open('https://mm.doshisha.ac.jp/', '_blank', 'noreferrer=yes');
         //   window.location.href = 'https://mm.doshisha.ac.jp/';
         }
       }
       else if(l_color==0 & r_color==1){ // RG LED1-2
         // to flyby html
         if(window.confirm('webページに飛びますか？')){
-            window.open('https://flyby.co.jp/', '_blank', 'noreferrer');
+            window.open('https://flyby.co.jp/', '_blank', 'noreferrer=yes');
         //   window.location.href = 'https://flyby.co.jp/';
         }
       }
       else if(l_color==0 & r_color==2){ // RB LED2-1
         // stamp1
         if(window.confirm('福引を回しますか？')){
-            window.open('https://hanako-suzuki.github.io/EXPO-contents.github.io/lot.html', '_blank', 'noreferrer');
+            window.open('https://hanako-suzuki.github.io/EXPO-contents.github.io/lot.html', '_blank', 'noreferrer=yes');
         //   window.location.href = 'https://hanako-suzuki.github.io/EXPO-contents.github.io/lot.html';
         }
       }
       else if(l_color==1 & r_color==0){ // GR LED2-2
         // stamp2
         if(window.confirm('スタンプを貯めますか？')){
-            window.open('https://hanako-suzuki.github.io/EXPO-contents.github.io/stamp.html', '_blank', 'noreferrer');
+            window.open('https://hanako-suzuki.github.io/EXPO-contents.github.io/stamp.html', '_blank', 'noreferrer=yes');
         //   window.location.href = 'https://hanako-suzuki.github.io/EXPO-contents.github.io/stamp.html';
         }
       }
       else if(l_color==1 & r_color==1){ // GG LED3-1
         // photo frame
         if(window.confirm('フォトフレーム１を表示しますか？')){
-            window.open('https://hanako-suzuki.github.io/EXPO-contents.github.io/frame.html', '_blank', 'noreferrer');
+            window.open('https://hanako-suzuki.github.io/EXPO-contents.github.io/frame.html', '_blank', 'noreferrer=yes');
         //   window.location.href = 'https://hanako-suzuki.github.io/EXPO-contents.github.io/frame.html';
         }
       }
       else if(l_color==1 & r_color==2){ // GB LED3-2
         // fish frame
         if(window.confirm('フォトフレーム２を表示しますか？')){
-            window.open('https://hanako-suzuki.github.io/EXPO-contents.github.io/fish.html', '_blank', 'noreferrer');
+            window.open('https://hanako-suzuki.github.io/EXPO-contents.github.io/fish.html', '_blank', 'noreferrer=yes');
         //   window.location.href = 'https://hanako-suzuki.github.io/EXPO-contents.github.io/fish.html';
         }
       }
       else if(l_color==2 & r_color==0){ // BR LED4-1
         // to LAR html
         if(window.confirm('webページに飛びますか？')){
-            window.open('https://web.tuat.ac.jp/~yu-nakayama/luminaryar.html', '_blank', 'noreferrer');
+            window.open('https://web.tuat.ac.jp/~yu-nakayama/luminaryar.html', '_blank', 'noreferrer=yes');
         //   window.location.href = 'https://web.tuat.ac.jp/~yu-nakayama/luminaryar.html';
         }
       }
       else if(l_color==2 & r_color==1){ // BG LED4-2
         // to shopping page
         if(window.confirm('webページに飛びますか？')){
-            window.open('https://knart.theshop.jp/', '_blank', 'noreferrer');
+            window.open('https://knart.theshop.jp/', '_blank', 'noreferrer=yes');
         //   window.location.href = 'https://knart.theshop.jp/';
         }
       }
       else if(l_color==2 & r_color==2){ // BB LED5
         // to neural html
         if(window.confirm('webページに飛びますか？')){
-            window.open('https://www.neuralmarketing.co.jp/', '_blank', 'noreferrer');
+            window.open('https://www.neuralmarketing.co.jp/', '_blank', 'noreferrer=yes');
         //   window.location.href = 'https://www.neuralmarketing.co.jp/';
         }
       }
