@@ -407,9 +407,9 @@ const medias = {
                 ok_id = i;
             }
         }
-        if(ok_max==0){
-            return;
-        }
+        // if(ok_max==0){
+        //     return;
+        // }
 
         mid_y = lines[cand_y[ok_id][0]][0].y;
       }else{
@@ -426,9 +426,9 @@ const medias = {
                 ok_cnt++;
             }
         }
-        if(ok_cnt==0){
-            return;
-        }
+        // if(ok_cnt==0){
+        //     return;
+        // }
         mid_y = lines[max_id][0].y;
       }
   
