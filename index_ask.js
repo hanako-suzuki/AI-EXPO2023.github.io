@@ -407,9 +407,28 @@ const medias = {
                 ok_id = i;
             }
         }
+        if(ok_max==0){
+            return;
+        }
 
         mid_y = lines[cand_y[ok_id][0]][0].y;
       }else{
+        let ok_cnt = 0;
+        for(let j=0; j<5; j++){
+            data_l = MatImage.ucharPtr([max_id][0].y, lines[max_id][0].x+j);
+            data_r = MatImage.ucharPtr(lines[max_id][0].y, lines[max_id][0].x-j);
+            if((data_l[0]>150 & data_l[1]<100 & data_l[2]<100) || (data_l[0]<100 & data_l[1]<100 & data_l[2]>150)){
+                // red or blue
+                ok_cnt++;
+            }
+            if((data_r[0]>150 & data_r[1]<100 & data_r[2]<100) || (data_r[0]<100 & data_r[1]<100 & data_r[2]>150)){
+                // red or blue
+                ok_cnt++;
+            }
+        }
+        if(ok_cnt==0){
+            return;
+        }
         mid_y = lines[max_id][0].y;
       }
   
